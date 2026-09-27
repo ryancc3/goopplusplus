@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GoopPlusPlus</title>
+    <meta name="description" content="GoopPlusPlus is a private Discord bot that connects a Rust team's Discord server to the game through Rust+, and collects the YouTube links members share into playlists.">
+    <link rel="icon" type="image/png" href="assets/logo-64.png">
+    <link rel="apple-touch-icon" href="assets/logo-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@700&display=swap">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="brand" href="./"><img src="assets/logo-64.png" alt="" width="36" height="36">GoopPlusPlus</a>
+            <nav class="site-nav" aria-label="Site">
+                <a href="./" aria-current="page">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="inner">
+            <div>
+                <h1>GoopPlusPlus</h1>
+                <p>A private Discord bot for one Rust team. It connects our Discord server to the game through Rust+, and gathers the music we share into YouTube playlists.</p>
+            </div>
+            <img src="assets/logo-512.png" alt="GoopPlusPlus logo" width="200" height="200">
+        </div>
+    </section>
+
+    <main class="wide">
+        <h2>What it does</h2>
+        <p class="lede">GoopPlusPlus runs on a small home server and serves a single, invite-only Discord community. It isn't a public bot, so you can't add it to your own server.</p>
+
+        <ul class="features">
+            <li>
+                <h3>Rust+ in Discord</h3>
+                <p>Relays team chat between the game and Discord, and shows server info, map events, smart switches, alarms and storage monitors.</p>
+            </li>
+            <li>
+                <h3>Raid alarms</h3>
+                <p>Members can opt in to hear about in-game alarms by Discord DM, push notification (ntfy) or phone call (Twilio).</p>
+            </li>
+            <li>
+                <h3>Team stats</h3>
+                <p>Tracks per-wipe team stats such as deaths, playtime and sessions, using data from Rust+.</p>
+            </li>
+            <li>
+                <h3>AI assistant</h3>
+                <p>Answers questions about the game and the team's current match in a dedicated channel. The assistant is powered by Anthropic's Claude.</p>
+            </li>
+            <li>
+                <h3>Player tracking</h3>
+                <p>Follows public server and player info from Battlemetrics and Steam.</p>
+            </li>
+            <li>
+                <h3>YouTube playlists</h3>
+                <p>Collects the YouTube links posted in a channel, such as #music, into one unlisted YouTube playlist.</p>
+            </li>
+        </ul>
+
+        <h2 id="youtube">How GoopPlusPlus uses YouTube</h2>
+        <div class="panel">
+            <p>Server admins can turn on playlist sync for a Discord channel with the <code>/playlist</code> command. The bot then:</p>
+            <ol>
+                <li>creates an unlisted playlist for that channel and pins its link there,</li>
+                <li>adds each YouTube video linked in the channel to that playlist, both past links and new ones, and</li>
+                <li>reads the playlist's contents so it doesn't add the same video twice.</li>
+            </ol>
+            <p>The bot uses the <a href="https://developers.google.com/youtube/v3">YouTube Data API</a>, signed in to <strong>one Google account: the bot operator's own</strong>. The playlists belong to that account's YouTube channel. Discord members never sign in with Google, and the bot never sees their Google or YouTube accounts.</p>
+            <p>The bot only creates and edits the playlists it manages. It doesn't read watch history, subscriptions, comments or any other YouTube data. Nothing it gets from Google is sold, shared, used for ads, or used to train AI models.</p>
+            <p>Details are in the <a href="privacy.html#google">Privacy Policy</a>. By using the YouTube features you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> applies.</p>
+        </div>
+
+        <h2>Questions</h2>
+        <p>To contact the operator, <a href="https://github.com/ryancc3/goopplusplus/issues">open an issue on GitHub</a>. Please don't put personal information in a public issue.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <nav aria-label="Footer">
+                <a href="./">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="https://github.com/ryancc3/goopplusplus/issues">Contact</a>
+            </nav>
+            <p>GoopPlusPlus is a private hobby project. It isn't affiliated with or endorsed by Discord, Facepunch Studios, Google or YouTube.</p>
+            <p>Built on <a href="https://github.com/alexemanuelol/rustplusplus">rustplusplus</a> by Alexander Emanuelsson, licensed under GPL-3.0.</p>
+        </div>
+    </footer>
+</body>
+</html>
